@@ -1,19 +1,6 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-
-const SwipeTile = ({ icon, title }) => {
-  return (
-    <View style={styles.swipeTile}>
-      <View style={styles.swipeTileIcon}>
-        <FontAwesome5 name={icon} size={32} color="black" />
-      </View>
-      <View style={styles.swipeTileTitle}>
-        <Text style={styles.swipeTileTitleText}>{title}</Text>
-      </View>
-    </View>
-  );
-};
 
 const Header = () => {
   return (
@@ -25,18 +12,40 @@ const Header = () => {
   );
 };
 
-const ProfileAndSettingsScreen = () => (
-  <View style={styles.container}>
-    <Header />
-    <View style={styles.swipeTileHolder}>
-      <SwipeTile icon="person-booth" title="Profile" />
-      <SwipeTile icon="bicycle" title="My Vehicles" />
-      <SwipeTile icon="phone" title="Contact Us" />
-      <SwipeTile icon="info" title="About Us" />
-      <SwipeTile icon="window-close" title="Logout" />
+const ProfileAndSettingsScreen = ({ navigation }) => {
+  const SwipeTile = ({ icon, title, screenName }) => {
+    return (
+      <TouchableOpacity
+        style={styles.swipeTile}
+        onPress={() => navigation.navigate(screenName)}
+      >
+        <View style={styles.swipeTileIcon}>
+          <FontAwesome5 name={icon} size={32} color="black" />
+        </View>
+        <View style={styles.swipeTileTitle}>
+          <Text style={styles.swipeTileTitleText}>{title}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+  return (
+    <View style={styles.container}>
+      <Header />
+      <View style={styles.swipeTileHolder}>
+        <SwipeTile
+          icon="person-booth"
+          title="Profile"
+          screenName="Profile"
+        />
+        <SwipeTile icon="bicycle" title="My Vehicles" screenName="Profile"  />
+        <SwipeTile icon="phone" title="Contact Us" screenName="Profile" />
+        <SwipeTile icon="info" title="About Us" screenName="Profile" />
+        <SwipeTile icon="window-close" title="Logout" screenName="Profile" />
+      </View>
     </View>
-  </View>
-);
+  );
+};
+
 export default ProfileAndSettingsScreen;
 
 const styles = StyleSheet.create({
@@ -44,7 +53,6 @@ const styles = StyleSheet.create({
     marginTop: 30,
     flex: 1,
     alignItems: "center",
-    // justifyContent: 'center'
   },
   header: {
     height: 70,
@@ -66,8 +74,8 @@ const styles = StyleSheet.create({
 
   // Swipe Tile
   swipeTileHolder: {
-      marginTop: 10,
-    width: '100%'
+    marginTop: 10,
+    width: "100%",
   },
   swipeTile: {
     marginVertical: 5,
