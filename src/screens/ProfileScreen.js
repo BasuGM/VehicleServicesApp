@@ -54,7 +54,6 @@ const InputTile = ({ title, placeholder, icon }) => {
         <Text style={styles.inputTileTitleText}>{title}</Text>
         <View style={styles.inputTileInputHolder}>
           <TextInput
-            // allowFontScaling=
             style={styles.inputTileInput}
             value={placeholder}
             placeholder="useless placeholder"
