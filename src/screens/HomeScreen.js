@@ -1,6 +1,30 @@
-import React from "react";
-import { View, Text, StyleSheet, Image, FlatList } from "react-native";
-import { Ionicons, Entypo, AntDesign } from "@expo/vector-icons";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  FlatList,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
+import { Entypo, AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
+
+const IconTile = ({ icon, title1, title2 }) => {
+  return (
+    <View style={styles.carServicesIconTile}>
+      <View style={styles.carServicesIcon}>
+        <View style={styles.carServicesIconIcon}>
+          <MaterialCommunityIcons name={icon} size={32} color="orange" />
+        </View>
+        <View style={styles.carServicesIconTitle}>
+          <Text style={styles.carServicesIconTitleText1}>{title1}</Text>
+          <Text style={styles.carServicesIconTitleText2}>{title2}</Text>
+        </View>
+      </View>
+    </View>
+  );
+};
 
 const Header = () => {
   return (
@@ -98,30 +122,201 @@ const ImageCarousal = () => {
   );
 };
 
-const HomeScreen = () => {
+const CarServicesMore = () => {
   return (
-    <View style={styles.container}>
-      <Header />
-      <ImageCarousal />
-      <Text>WORKING HERE</Text>
+    <View style={{ width: "100%" }}>
+      <View style={styles.carServicesTileHolder}>
+        <View style={styles.carServicesTileRow1}>
+          <IconTile icon={"caravan"} title1={"Express"} title2={"Service"} />
+          <IconTile
+            icon={"car-coolant-level"}
+            title1={"Dent"}
+            title2={"Removal"}
+          />
+          <IconTile
+            icon={"car-cruise-control"}
+            title1={"Interior"}
+            title2={"Detailing"}
+          />
+          <IconTile icon={"car-3-plus"} title1={"Car"} title2={"Polish"} />
+        </View>
+        <View style={styles.carServicesTileRow1}>
+          <IconTile
+            icon={"car-arrow-left"}
+            title1={"Bumper"}
+            title2={"Repainting"}
+          />
+          <IconTile icon={"car-arrow-right"} title1={"Oil"} title2={"Change"} />
+          <IconTile icon={"car-back"} title1={"Complete"} title2={"Car Spa"} />
+          <IconTile icon={"car-cog"} title1={"AC"} title2={"Service"} />
+        </View>
+        <View style={styles.carServicesTileRow1}>
+          <IconTile
+            icon={"car-connected"}
+            title1={"Full Body"}
+            title2={"Painting"}
+          />
+          <IconTile icon={"car-convertible"} title1={"Repair"} title2={"Job"} />
+        </View>
+      </View>
+    </View>
+  );
+};
+
+const CarServicesLess = () => {
+  return (
+    <View style={{ width: "100%" }}>
+      <View style={styles.carServicesTileHolder}>
+        <View style={styles.carServicesTileRow1}>
+          <IconTile icon={"caravan"} title1={"Express"} title2={"Service"} />
+          <IconTile
+            icon={"car-coolant-level"}
+            title1={"Dent"}
+            title2={"Removal"}
+          />
+          <IconTile
+            icon={"car-cruise-control"}
+            title1={"Interior"}
+            title2={"Detailing"}
+          />
+          <IconTile icon={"car-3-plus"} title1={"Car"} title2={"Polish"} />
+        </View>
+        <View style={styles.carServicesTileRow1}>
+          <IconTile
+            icon={"car-arrow-left"}
+            title1={"Bumper"}
+            title2={"Repainting"}
+          />
+          <IconTile icon={"car-arrow-right"} title1={"Oil"} title2={"Change"} />
+          <IconTile icon={"car-back"} title1={"Complete"} title2={"Car Spa"} />
+          <IconTile icon={"car-cog"} title1={"AC"} title2={"Service"} />
+        </View>
+      </View>
+    </View>
+  );
+};
+
+const CarServices = () => {
+  const [more, setMore] = useState(false);
+
+  return (
+    <View style={{ width: "100%" }}>
       <View style={styles.carServicesTile}>
         <View style={styles.carServicesTileTitle}>
           <Text style={styles.carServicesTileTitleText}>Car Services</Text>
         </View>
-        <View style={styles.carServicesTileMore}>
-          <Text style={styles.carServicesTileMoreText}>More</Text>
-        </View>
+        <TouchableOpacity
+          style={styles.carServicesTileMore}
+          onPress={() => setMore(!more)}
+        >
+          <Text style={styles.carServicesTileMoreText}>
+            {more ? "Less" : "More"}
+          </Text>
+        </TouchableOpacity>
       </View>
+      {more && <CarServicesMore />}
+      {!more && <CarServicesLess />}
+    </View>
+  );
+};
 
-      <View style={styles.carServicesIconTile}>
-        <View style={styles.carServicesIcon}>
-          <Text>Icon</Text>
-          <Text>Title</Text>
+const BikeServices = () => {
+  return (
+    <View style={{ width: "100%" }}>
+      <View style={styles.carServicesTile}>
+        <View style={styles.bikeServicesTileTitle}>
+          <Text style={styles.carServicesTileTitleText}>Bike Services</Text>
         </View>
       </View>
-      <Text>WORKING HERE</Text>
-      <Text>Bike Services</Text>
-      <Text>24 * 7 Assist</Text>
+      <BikeServicesIconSet />
+    </View>
+  );
+};
+
+const BikeServicesIconSet = () => {
+  return (
+    <View style={{ width: "100%" }}>
+      <View style={styles.carServicesTileHolder}>
+        <View style={styles.carServicesTileRow1}>
+          <IconTile icon={"bike"} title1={"General"} title2={"Service"} />
+          <IconTile
+            icon={"bike-fast"}
+            title1={"Premium Bike"}
+            title2={"Service"}
+          />
+          <IconTile icon={"motorbike"} title1={"Repair"} title2={"Job"} />
+          <IconTile
+            icon={"bicycle"}
+            title1={"Doorstep Bike"}
+            title2={"Service"}
+          />
+        </View>
+        <View style={styles.carServicesTileRow1}>
+          <IconTile
+            icon={"bicycle-basket"}
+            title1={"Premium"}
+            title2={"Bike Service"}
+          />
+        </View>
+      </View>
+    </View>
+  );
+};
+
+const AssistServices = () => {
+  return (
+    <View style={{ width: "100%" }}>
+      <View style={styles.carServicesTile}>
+        <View style={styles.bikeServicesTileTitle}>
+          <Text style={styles.carServicesTileTitleText}>24 * 7 Assist</Text>
+        </View>
+      </View>
+      <AssistServicesIconSet />
+    </View>
+  );
+};
+
+const AssistServicesIconSet = () => {
+  return (
+    <View style={{ width: "100%" }}>
+    <View style={styles.carServicesTileHolder}>
+      <View style={styles.carServicesTileRow1}>
+        <IconTile icon={"air-humidifier"} title1={"General"} title2={"Service"} />
+        <IconTile
+          icon={"airbag"}
+          title1={"Premium Bike"}
+          title2={"Service"}
+        />
+        <IconTile icon={"alien"} title1={"Repair"} title2={"Job"} />
+        <IconTile
+          icon={"scan-helper"}
+          title1={"Doorstep Bike"}
+          title2={"Service"}
+        />
+      </View>
+      <View style={styles.carServicesTileRow1}>
+        <IconTile
+          icon={"android"}
+          title1={"Premium"}
+          title2={"Bike Service"}
+        />
+      </View>
+    </View>
+  </View>
+
+  )
+}
+
+const HomeScreen = () => {
+  return (
+    <View style={styles.container}>
+      <Header />
+      <ScrollView contentContainerStyle={styles.containerScrollView}>
+        <ImageCarousal />
+        <CarServices />
+        <BikeServices />
+        <AssistServices />
+      </ScrollView>
     </View>
   );
 };
@@ -131,10 +326,15 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 30,
     alignItems: "center",
-    justifyContent: "center",
+    // justifyContent: "center",
   },
-
+  containerScrollView: {
+    // width: '100%',
+    justifyContent: "center",
+    alignItems: "center",
+  },
   // Header
   header: {
     height: 70,
@@ -148,7 +348,10 @@ const styles = StyleSheet.create({
     width: "50%",
     flexDirection: "row",
   },
-  locationTileIcon: {},
+  locationTileIcon: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
   locationTileName: {
     marginHorizontal: 5,
   },
@@ -169,10 +372,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: 'center',
     paddingHorizontal: 10,
   },
-  carServicesTileTitle: {},
+  carServicesTileTitle: {
+    width: '86%'
+  },
+  bikeServicesTileTitle: {
+    width: '100%'
+  },
   carServicesTileTitleText: {
     fontSize: 26,
     fontWeight: "bold",
@@ -184,4 +392,24 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#444",
   },
+  carServicesIconTile: {
+    height: 100,
+    width: 100,
+    justifyContent: "center",
+    alignItems: "center",
+    // backgroundColor: 'blue',
+    borderWidth: 0.3,
+  },
+  carServicesIcon: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  carServicesIconIcon: {},
+  carServicesIconTitle: {},
+  carServicesIconTitleText1: {},
+  carServicesIconTitleText2: {},
+  carServicesTileRow1: {
+    flexDirection: "row",
+  },
+  carServicesTileHolder: {},
 });
