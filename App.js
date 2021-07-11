@@ -5,6 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import HomeScreen from './src/screens/HomeScreen';
 import RealTimeTrackingScreen from './src/screens/RealTimeTrackingScreen';
+import ReferAndEarnScreen from './src/screens/ReferAndEarnScreen';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -12,7 +13,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="RealTimeTracking"
+        initialRouteName="ReferAndEarn"
         screenOptions={{headerShown: false}}
       >
         <Stack.Screen
@@ -22,6 +23,10 @@ export default function App() {
         <Stack.Screen
           name="RealTimeTracking"
           component={RealTimeTrackingScreen}
+        />
+        <Stack.Screen
+          name="ReferAndEarn"
+          component={ReferAndEarnScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
