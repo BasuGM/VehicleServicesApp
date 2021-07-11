@@ -7,6 +7,7 @@ import HomeScreen from "./src/screens/HomeScreen";
 import RealTimeTrackingScreen from "./src/screens/RealTimeTrackingScreen";
 import ReferAndEarnScreen from "./src/screens/ReferAndEarnScreen";
 import ProfileAndSettingsScreen from "./src/screens/ProfileAndSettingsScreen";
+import MainTab from "./src/navigation/MainTab";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -14,7 +15,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="ProfileAndSettings"
+        initialRouteName="MainTab"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Home" component={HomeScreen} />
@@ -26,6 +27,10 @@ export default function App() {
         <Stack.Screen
           name="ProfileAndSettings"
           component={ProfileAndSettingsScreen}
+        />
+        <Stack.Screen
+          name="MainTab"
+          component={MainTab}
         />
       </Stack.Navigator>
     </NavigationContainer>
