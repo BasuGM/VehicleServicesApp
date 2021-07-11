@@ -372,9 +372,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: 'center',
     paddingHorizontal: 10,
+    backgroundColor: '#ddd'
   },
   carServicesTileTitle: {
-    width: '86%'
+    width: '88%'
   },
   bikeServicesTileTitle: {
     width: '100%'
@@ -386,8 +387,7 @@ const styles = StyleSheet.create({
   },
   carServicesTileMore: {},
   carServicesTileMoreText: {
-    fontSize: 24,
-    fontWeight: "bold",
+    fontSize: 18,
     color: "#444",
   },
   carServicesIconTile: {
@@ -395,8 +395,6 @@ const styles = StyleSheet.create({
     width: 100,
     justifyContent: "center",
     alignItems: "center",
-    // backgroundColor: 'blue',
-    borderWidth: 0.3,
   },
   carServicesIcon: {
     justifyContent: "center",
