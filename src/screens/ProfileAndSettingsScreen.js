@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
+import Dialog from "react-native-dialog";
 
 const Header = () => {
   return (
@@ -13,6 +14,8 @@ const Header = () => {
 };
 
 const ProfileAndSettingsScreen = ({ navigation }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
   const SwipeTile = ({ icon, title, screenName }) => {
     return (
       <TouchableOpacity
@@ -28,20 +31,52 @@ const ProfileAndSettingsScreen = ({ navigation }) => {
       </TouchableOpacity>
     );
   };
+
+  const SwipeTileLogout = ({ icon, title }) => {
+    return (
+      <TouchableOpacity
+        style={styles.swipeTile}
+        onPress={() => setIsVisible(!isVisible)}
+      >
+        <View style={styles.swipeTileIcon}>
+          <FontAwesome5 name={icon} size={32} color="black" />
+        </View>
+        <View style={styles.swipeTileTitle}>
+          <Text style={styles.swipeTileTitleText}>{title}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
+  
+const LogoutDialog = () => {
+  return (
+    <Dialog.Container visible={isVisible}>
+      <Dialog.Title>Log Out</Dialog.Title>
+      <Dialog.Description>
+        Do you want to log out of this account?
+      </Dialog.Description>
+      <Dialog.Button label="Cancel" onPress={() => setIsVisible(!isVisible)} />
+      <Dialog.Button label="Logout" onPress={() => setIsVisible(!isVisible)}/>
+    </Dialog.Container>
+  );
+};
+
   return (
     <View style={styles.container}>
       <Header />
       <View style={styles.swipeTileHolder}>
-        <SwipeTile
-          icon="person-booth"
-          title="Profile"
-          screenName="Profile"
-        />
-        <SwipeTile icon="bicycle" title="My Vehicles" screenName="MyVehicles"  />
+        <SwipeTile icon="person-booth" title="Profile" screenName="Profile" />
+        <SwipeTile icon="bicycle" title="My Vehicles" screenName="MyVehicles" />
         <SwipeTile icon="phone" title="Contact Us" screenName="ContactUs" />
         <SwipeTile icon="info" title="About Us" screenName="AboutUs" />
-        <SwipeTile icon="window-close" title="Logout" screenName="Profile" />
+        <SwipeTileLogout
+          icon="window-close"
+          title="Logout"
+          screenName="AboutUs"
+        />
       </View>
+      <LogoutDialog />
     </View>
   );
 };

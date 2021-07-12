@@ -15,7 +15,7 @@ const IconTile = ({ icon, title1, title2 }) => {
     <View style={styles.carServicesIconTile}>
       <View style={styles.carServicesIcon}>
         <View style={styles.carServicesIconIcon}>
-          <MaterialCommunityIcons name={icon} size={32} color="orange" />
+          <MaterialCommunityIcons name={icon} size={32} color="#595260" />
         </View>
         <View style={styles.carServicesIconTitle}>
           <Text style={styles.carServicesIconTitleText1}>{title1}</Text>
