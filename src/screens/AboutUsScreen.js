@@ -51,6 +51,7 @@ const AboutUsScreen = () => (
 );
 export default AboutUsScreen;
 
+
 const styles = StyleSheet.create({
   container: {
     marginTop: 30,
