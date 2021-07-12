@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity, Linking } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Linking,
+} from "react-native";
 import { Ionicons, FontAwesome5 } from "@expo/vector-icons";
 import { callNumber } from "../functions/callFunction";
 
@@ -43,32 +50,69 @@ const SwipeTile = ({ icon, title, screenName }) => {
   );
 };
 
-const ContactUsScreen = () => (
-  <View style={styles.container}>
-    <Header />
-    <Image
-      style={{
-        height: 230,
-        width: 400,
-      }}
-      source={{
-        uri: "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-      }}
-    />
-    <View style={styles.workingHours}>
-      <FontAwesome5 name="headphones-alt" size={36} color="black" />
-      <Text style={styles.workingHoursText}>
-        Working Hours (Mon-Sat) 9:30 AM - 6:30 AM{" "}
-      </Text>
+const ContactUsScreen = ({ navigation }) => {
+
+  const navigationCall = () => {
+    navigation.navigate('Messages')
+  }
+  
+  const SwipeTile = ({ icon, title, screenName }) => {
+    const handleClick = () => {
+      switch (title) {
+        case "Call Us":
+          callNumber(9876543210);
+          break;
+        case "Email Us":
+          Linking.openURL("mailto:support@example.com");
+          break;
+        case "Chat with Us":
+          navigationCall()
+          break;
+        default:
+          break;
+      }
+    };
+
+    return (
+      <TouchableOpacity style={styles.swipeTile} onPress={handleClick}>
+        <View style={styles.swipeTileIcon}>
+          <FontAwesome5 name={icon} size={32} color="black" />
+        </View>
+        <View style={styles.swipeTileTitle}>
+          <Text style={styles.swipeTileTitleText}>{title}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      <Header />
+      <Image
+        style={{
+          height: 230,
+          width: 400,
+        }}
+        source={{
+          uri: "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+        }}
+      />
+      <View style={styles.workingHours}>
+        <FontAwesome5 name="headphones-alt" size={36} color="black" />
+        <Text style={styles.workingHoursText}>
+          Working Hours (Mon-Sat) 9:30 AM - 6:30 AM{" "}
+        </Text>
+      </View>
+      <View style={{ width: "100%" }}>
+        <SwipeTile icon="mask" title="Ask Us" />
+        <SwipeTile icon="phone" title="Call Us" />
+        <SwipeTile icon="rocketchat" title="Chat with Us" />
+        <SwipeTile icon="mail-bulk" title="Email Us" />
+      </View>
     </View>
-    <View style={{ width: "100%" }}>
-      <SwipeTile icon="mask" title="Ask Us" />
-      <SwipeTile icon="phone" title="Call Us" />
-      <SwipeTile icon="rocketchat" title="Chat with Us" />
-      <SwipeTile icon="mail-bulk" title="Email Us" />
-    </View>
-  </View>
-);
+  );
+};
+
 export default ContactUsScreen;
 
 const styles = StyleSheet.create({

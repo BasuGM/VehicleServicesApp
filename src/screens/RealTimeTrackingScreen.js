@@ -1,29 +1,34 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
-const Header = () => {
-  return (
-    <View style={styles.header}>
-      <View style={{ width: 40 }}></View>
-      <View style={styles.headerTitle}>
-        <Text style={styles.headerTitleText}>Real Time Tracking</Text>
+const RealTimeTrackingScreen = ({ navigation }) => {
+  const Header = () => {
+    return (
+      <View style={styles.header}>
+        <View style={{ width: 40 }}></View>
+        <View style={styles.headerTitle}>
+          <Text style={styles.headerTitleText}>Real Time Tracking</Text>
+        </View>
+        <TouchableOpacity
+          style={styles.headerRight}
+          onPress={() => navigation.navigate("Messages")}
+        >
+          <MaterialIcons name="message" size={28} color="orange" />
+        </TouchableOpacity>
       </View>
-      <View style={styles.headerRight}>
-        <MaterialIcons name="message" size={28} color="orange" />
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      <Header />
+      <View style={styles.contentScreen}>
+        <Text style={styles.contentScreenText}>No More bookings yet</Text>
       </View>
     </View>
   );
 };
-
-const RealTimeTrackingScreen = () => (
-  <View style={styles.container}>
-    <Header />
-    <View style={styles.contentScreen}>
-      <Text style={styles.contentScreenText}>No More bookings yet</Text>
-    </View>
-  </View>
-);
 export default RealTimeTrackingScreen;
 
 const styles = StyleSheet.create({
@@ -60,7 +65,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   contentScreenText: {
-    color: '#aaa',
+    color: "#aaa",
     fontSize: 16,
-  }
+  },
 });

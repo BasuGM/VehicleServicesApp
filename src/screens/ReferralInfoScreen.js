@@ -81,12 +81,10 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     width: "100%",
-    padding: 30,
     paddingHorizontal: 20,
   },
   subTitleText: {
       fontSize: 22,
       color: '#222',
-    //   textAlign: 'justify'
   },
 });
