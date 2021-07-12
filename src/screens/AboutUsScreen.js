@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Linking,
+} from "react-native";
 import { Ionicons, Entypo } from "@expo/vector-icons";
 
 const Header = () => {
@@ -16,9 +23,30 @@ const Header = () => {
   );
 };
 
-const SwipeTile = ({ icon, title, screenName }) => {
+const SwipeTile = ({ icon, title }) => {
+  const handleClick = () => {
+    switch (title) {
+      case "Like us on Facebook":
+        Linking.openURL("https://www.facebook.com/rickroll548");
+        break;
+      case "Follow us on Instagram":
+        Linking.openURL("https://www.instagram.com/rick_r0lled/");
+        break;
+      case "Terms and Conditions":
+        Linking.openURL(
+          "https://images.unsplash.com/photo-1585909695677-2b0492f96e3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+        );
+      case "Privacy Policy":
+        Linking.openURL(
+          "https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=753&q=80"
+        );
+      default:
+        break;
+    }
+  };
+
   return (
-    <TouchableOpacity style={styles.swipeTile}>
+    <TouchableOpacity style={styles.swipeTile} onPress={handleClick}>
       <View style={styles.swipeTileIcon}>
         <Entypo name={icon} size={32} color="black" />
       </View>
@@ -38,7 +66,7 @@ const AboutUsScreen = () => (
         width: 400,
       }}
       source={{
-        uri: "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80"
+        uri: "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80",
       }}
     />
     <View style={styles.swipeTileHolder}>
@@ -50,7 +78,6 @@ const AboutUsScreen = () => (
   </View>
 );
 export default AboutUsScreen;
-
 
 const styles = StyleSheet.create({
   container: {

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity, Linking } from "react-native";
 import { Ionicons, FontAwesome5 } from "@expo/vector-icons";
 import { callNumber } from "../functions/callFunction";
 
@@ -22,6 +22,9 @@ const SwipeTile = ({ icon, title, screenName }) => {
     switch (title) {
       case "Call Us":
         callNumber(9876543210);
+        break;
+      case "Email Us":
+        Linking.openURL("mailto:support@example.com");
         break;
       default:
         break;
