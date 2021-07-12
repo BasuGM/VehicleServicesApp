@@ -17,6 +17,7 @@ const Header = () => {
 };
 
 const VehicleTile = () => {
+
   return (
     <View style={styles.vehicleInfoTile}>
       <View style={styles.vehicleInfoTileTitle}>

@@ -6,6 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import MainTab from "./src/navigation/MainTab";
 import ProfileScreen from "./src/screens/ProfileScreen";
 import MyVehiclesScreen from "./src/screens/MyVehiclesScreen";
+import ContactUsScreen from "./src/screens/ContactUsScreen";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -13,7 +14,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="MyVehicles"
+        initialRouteName="ContactUs"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen
@@ -27,6 +28,10 @@ export default function App() {
         <Stack.Screen
           name="MyVehicles"
           component={MyVehiclesScreen}
+        />
+        <Stack.Screen
+          name="ContactUs"
+          component={ContactUsScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
