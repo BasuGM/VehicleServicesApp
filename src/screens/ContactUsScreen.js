@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Ionicons, FontAwesome5 } from "@expo/vector-icons";
+import { callNumber } from "../functions/callFunction";
 
 const Header = () => {
   return (
@@ -17,8 +18,18 @@ const Header = () => {
 };
 
 const SwipeTile = ({ icon, title, screenName }) => {
+  const handleClick = () => {
+    switch (title) {
+      case "Call Us":
+        callNumber(9876543210);
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
-    <TouchableOpacity style={styles.swipeTile}>
+    <TouchableOpacity style={styles.swipeTile} onPress={handleClick}>
       <View style={styles.swipeTileIcon}>
         <FontAwesome5 name={icon} size={32} color="black" />
       </View>
@@ -47,7 +58,7 @@ const ContactUsScreen = () => (
         Working Hours (Mon-Sat) 9:30 AM - 6:30 AM{" "}
       </Text>
     </View>
-    <View style={{ width: '100%'}}>
+    <View style={{ width: "100%" }}>
       <SwipeTile icon="mask" title="Ask Us" />
       <SwipeTile icon="phone" title="Call Us" />
       <SwipeTile icon="rocketchat" title="Chat with Us" />

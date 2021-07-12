@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 const Header = () => {
   return (
@@ -42,9 +42,11 @@ const ReferAndEarnScreen = () => (
         />
       </View>
     </View>
-    <View style={styles.sendInviteTile}>
+    <TouchableOpacity
+      style={styles.sendInviteTile}
+    >
       <Text style={styles.sendInviteTileText}>SEND INVITES</Text>
-    </View>
+    </TouchableOpacity>
   </View>
 );
 export default ReferAndEarnScreen;
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
     width: "50%",
   },
   sendInviteTile: {
-      marginTop: 100,
+    marginTop: 100,
     height: 60,
     width: 360,
     backgroundColor: "black",
@@ -116,8 +118,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   sendInviteTileText: {
-      color: 'white',
-      fontWeight: 'bold',
-      fontSize: 18
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 18,
   },
 });
