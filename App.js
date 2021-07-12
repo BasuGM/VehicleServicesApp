@@ -7,6 +7,7 @@ import MainTab from "./src/navigation/MainTab";
 import ProfileScreen from "./src/screens/ProfileScreen";
 import MyVehiclesScreen from "./src/screens/MyVehiclesScreen";
 import ContactUsScreen from "./src/screens/ContactUsScreen";
+import AboutUsScreen from "./src/screens/AboutUsScreen";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -14,7 +15,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="ContactUs"
+        initialRouteName="MainTab"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen
@@ -32,6 +33,10 @@ export default function App() {
         <Stack.Screen
           name="ContactUs"
           component={ContactUsScreen}
+        />
+        <Stack.Screen
+          name="AboutUs"
+          component={AboutUsScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

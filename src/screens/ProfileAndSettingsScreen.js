@@ -39,7 +39,7 @@ const ProfileAndSettingsScreen = ({ navigation }) => {
         />
         <SwipeTile icon="bicycle" title="My Vehicles" screenName="MyVehicles"  />
         <SwipeTile icon="phone" title="Contact Us" screenName="ContactUs" />
-        <SwipeTile icon="info" title="About Us" screenName="Profile" />
+        <SwipeTile icon="info" title="About Us" screenName="AboutUs" />
         <SwipeTile icon="window-close" title="Logout" screenName="Profile" />
       </View>
     </View>
