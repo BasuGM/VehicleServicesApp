@@ -11,7 +11,7 @@ const Header = () => {
   );
 };
 
-const ReferAndEarnScreen = () => (
+const ReferAndEarnScreen = ({ navigation }) => (
   <View style={styles.container}>
     <Header />
 
@@ -26,9 +26,9 @@ const ReferAndEarnScreen = () => (
             Spread the word about GoBumpr and win free services
           </Text>
         </View>
-        <View style={styles.spreadTheWordTitle2}>
-          <Text style={styles.spreadTheWordTitleText2}>How does this work</Text>
-        </View>
+        <TouchableOpacity style={styles.spreadTheWordTitle2} onPress={() => navigation.navigate('ReferralInfo')}>
+          <Text style={styles.spreadTheWordTitleText2}>How does this work?</Text>
+        </TouchableOpacity>
       </View>
       <View style={styles.spreadTheWordRight}>
         <Image
