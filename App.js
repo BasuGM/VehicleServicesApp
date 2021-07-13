@@ -11,6 +11,7 @@ import AboutUsScreen from "./src/screens/AboutUsScreen";
 import ReferralInfoScreen from "./src/screens/ReferralInfoScreen";
 import MessagesScreen from "./src/screens/MessagesScreen";
 import ProductPageScreen from "./src/screens/ProductPageScreen";
+import ChooseLocationScreen from "./src/screens/ChooseLocationScreen";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -52,6 +53,10 @@ export default function App() {
         <Stack.Screen
           name="ProductPage"
           component={ProductPageScreen}
+        />
+        <Stack.Screen
+          name="ChooseLocation"
+          component={ChooseLocationScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

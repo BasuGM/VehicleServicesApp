@@ -77,7 +77,10 @@ const InputTileGender = ({ title, placeholder, icon }) => {
       </View>
       <View style={styles.inputTileTitle}>
         <Text style={styles.inputTileTitleText}>{title}</Text>
-        <TouchableOpacity style={styles.inputTileGenderInputHolder} onPress={() => setIsMale(!isMale)}>
+        <TouchableOpacity
+          style={styles.inputTileGenderInputHolder}
+          onPress={() => setIsMale(!isMale)}
+        >
           <GenderChoice title={"Male"} male={isMale} />
           <GenderChoice title={"Female"} male={!isMale} />
         </TouchableOpacity>
@@ -89,37 +92,63 @@ const InputTileGender = ({ title, placeholder, icon }) => {
   );
 };
 
-const ProfileScreen = () => (
-  <View style={styles.container}>
-    <Header />
-    <View style={styles.profileInfo}>
-      <Text style={styles.profileInfoText}>Profile Info</Text>
-    </View>
-    <View style={styles.inputTileHolder}>
-      <InputTile title="Name" icon="person" placeholder="Basavachetan GM" />
-      <InputTile
-        title="Phone Number"
-        icon="phone"
-        placeholder="+91 7795180292"
-      />
-      <InputTile
-        title="Email ID"
-        icon="email"
-        placeholder="basugm001@gmail.com"
-      />
-      <InputTileGender
-        title="Gender"
-        icon="acrobat-reader"
-        placeholder="Basavachetan GM"
-      />
-      <InputTile title="City" icon="periscope" placeholder="Bangalore" />
-    </View>
+const ProfileScreen = ({ navigation }) => {
 
-    <View style={styles.updateProfileTile}>
-      <Text style={styles.updateProfileTileText}>UPDATE PROFILE</Text>
+  const navigationCall = () => {
+    navigation.navigate('ChooseLocation')
+  }
+
+  const InputTileCity = ({ title, placeholder, icon }) => {
+    return (
+      <View style={styles.inputTile}>
+        <View style={styles.inputTileLeft}>
+          <Fontisto name={icon} size={36} color="black" />
+        </View>
+        <View style={styles.inputTileTitle}>
+          <Text style={styles.inputTileTitleText}>{title}</Text>
+          <TouchableOpacity style={styles.inputTileInputHolder} onPress={navigationCall}>
+            <Text style={{fontSize: 24 }}>Bangalore</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.inputTileRight}>
+          <Feather name="anchor" size={36} color="black" />
+        </View>
+      </View>
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      <Header />
+      <View style={styles.profileInfo}>
+        <Text style={styles.profileInfoText}>Profile Info</Text>
+      </View>
+      <View style={styles.inputTileHolder}>
+        <InputTile title="Name" icon="person" placeholder="Basavachetan GM" />
+        <InputTile
+          title="Phone Number"
+          icon="phone"
+          placeholder="+91 7795180292"
+        />
+        <InputTile
+          title="Email ID"
+          icon="email"
+          placeholder="basugm001@gmail.com"
+        />
+        <InputTileGender
+          title="Gender"
+          icon="acrobat-reader"
+          placeholder="Basavachetan GM"
+        />
+        <InputTileCity title="City" icon="periscope" placeholder="Bangalore" />
+      </View>
+
+      <View style={styles.updateProfileTile}>
+        <Text style={styles.updateProfileTileText}>UPDATE PROFILE</Text>
+      </View>
     </View>
-  </View>
-);
+  );
+};
 export default ProfileScreen;
 
 const styles = StyleSheet.create({

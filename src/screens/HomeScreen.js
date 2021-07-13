@@ -44,84 +44,6 @@ const Header = () => {
   );
 };
 
-// const ImageCarousal = () => {
-//   const categoriesData = [
-//     {
-//       id: 0,
-//       url: "https://images.unsplash.com/photo-1493238792000-8113da705763?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-//     },
-//     {
-//       id: 1,
-//       url: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-//     },
-//     {
-//       id: 2,
-//       url: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-//     },
-//     {
-//       id: 3,
-//       url: "https://images.unsplash.com/photo-1485291571150-772bcfc10da5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-//     },
-//     {
-//       id: 4,
-//       url: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80",
-//     },
-//     {
-//       id: 5,
-//       url: "https://images.unsplash.com/photo-1597404294360-feeeda04612e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-//     },
-//     {
-//       id: 6,
-//       url: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-//     },
-//     {
-//       id: 7,
-//       url: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-//     },
-//     {
-//       id: 8,
-//       url: "https://images.unsplash.com/photo-1502877338535-766e1452684a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80",
-//     },
-//     {
-//       id: 9,
-//       url: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=847&q=80",
-//     },
-//   ];
-
-//   const renderItem = (item) => {
-//     return (
-//       <View
-//         style={{
-//           backgroundColor: "#eee",
-//           height: 200,
-//         }}
-//       >
-//         <Image
-//           style={{
-//             height: 200,
-//             width: 400,
-//           }}
-//           source={{
-//             uri: item.url,
-//           }}
-//         />
-//       </View>
-//     );
-//   };
-
-//   return (
-//     <View style={styles.imageCarousalTile}>
-//       <FlatList
-//         horizontal
-//         data={categoriesData}
-//         renderItem={({ item }) => renderItem(item)}
-//         keyExtractor={(item) => `${item.id}`}
-//         showsVerticalScrollIndicator={false}
-//       />
-//     </View>
-//   );
-// };
-
 const CarServicesMore = () => {
   return (
     <View style={{ width: "100%" }}>
@@ -312,7 +234,11 @@ const AssistServicesIconSet = () => {
 
 const HomeScreen = ({ navigation }) => {
   const navigationCall = () => {
-    navigation.navigate('ProductPage')
+    navigation.navigate("ProductPage");
+  };
+
+  const navigationCall2 = () => {
+    navigation.navigate("ChooseLocation");
   };
 
   const ImageCarousal = () => {
@@ -390,6 +316,24 @@ const HomeScreen = ({ navigation }) => {
           keyExtractor={(item) => `${item.id}`}
           showsVerticalScrollIndicator={false}
         />
+      </View>
+    );
+  };
+
+  const Header = () => {
+    return (
+      <View style={styles.header}>
+        <View style={styles.locationTile}>
+          <View style={styles.locationTileIcon}>
+            <Entypo name="location" size={32} color="orange" />
+          </View>
+          <View style={styles.locationTileName}>
+            <Text style={styles.locationTileNameText}>Bangalore</Text>
+          </View>
+          <TouchableOpacity style={styles.locationTileChevron} onPress={navigationCall2}>
+            <AntDesign name="down" size={32} color="orange" />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   };
