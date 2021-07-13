@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { onShare } from '../functions/shareFunction'
 
 const Header = () => {
   return (
@@ -44,6 +45,7 @@ const ReferAndEarnScreen = ({ navigation }) => (
     </View>
     <TouchableOpacity
       style={styles.sendInviteTile}
+      onPress={onShare}
     >
       <Text style={styles.sendInviteTileText}>SEND INVITES</Text>
     </TouchableOpacity>
