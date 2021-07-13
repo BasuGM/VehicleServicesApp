@@ -14,7 +14,7 @@ const RealTimeTrackingScreen = ({ navigation }) => {
           style={styles.headerRight}
           onPress={() => navigation.navigate("Messages")}
         >
-          <MaterialIcons name="message" size={28} color="orange" />
+          <MaterialIcons name="message" size={28} color="#ff8a05" />
         </TouchableOpacity>
       </View>
     );

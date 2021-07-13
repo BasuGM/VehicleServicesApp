@@ -10,6 +10,7 @@ import ContactUsScreen from "./src/screens/ContactUsScreen";
 import AboutUsScreen from "./src/screens/AboutUsScreen";
 import ReferralInfoScreen from "./src/screens/ReferralInfoScreen";
 import MessagesScreen from "./src/screens/MessagesScreen";
+import ProductPageScreen from "./src/screens/ProductPageScreen";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -47,6 +48,10 @@ export default function App() {
         <Stack.Screen
           name="Messages"
           component={MessagesScreen}
+        />
+        <Stack.Screen
+          name="ProductPage"
+          component={ProductPageScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

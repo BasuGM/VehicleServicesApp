@@ -12,7 +12,7 @@ import { Entypo, AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 
 const IconTile = ({ icon, title1, title2 }) => {
   return (
-    <View style={styles.carServicesIconTile}>
+    <TouchableOpacity style={styles.carServicesIconTile}>
       <View style={styles.carServicesIcon}>
         <View style={styles.carServicesIconIcon}>
           <MaterialCommunityIcons name={icon} size={32} color="#595260" />
@@ -22,7 +22,7 @@ const IconTile = ({ icon, title1, title2 }) => {
           <Text style={styles.carServicesIconTitleText2}>{title2}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -44,83 +44,83 @@ const Header = () => {
   );
 };
 
-const ImageCarousal = () => {
-  const categoriesData = [
-    {
-      id: 0,
-      url: "https://images.unsplash.com/photo-1493238792000-8113da705763?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-    },
-    {
-      id: 1,
-      url: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-    },
-    {
-      id: 2,
-      url: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-    },
-    {
-      id: 3,
-      url: "https://images.unsplash.com/photo-1485291571150-772bcfc10da5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      id: 4,
-      url: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80",
-    },
-    {
-      id: 5,
-      url: "https://images.unsplash.com/photo-1597404294360-feeeda04612e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-    },
-    {
-      id: 6,
-      url: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-    },
-    {
-      id: 7,
-      url: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-    },
-    {
-      id: 8,
-      url: "https://images.unsplash.com/photo-1502877338535-766e1452684a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80",
-    },
-    {
-      id: 9,
-      url: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=847&q=80",
-    },
-  ];
+// const ImageCarousal = () => {
+//   const categoriesData = [
+//     {
+//       id: 0,
+//       url: "https://images.unsplash.com/photo-1493238792000-8113da705763?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+//     },
+//     {
+//       id: 1,
+//       url: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+//     },
+//     {
+//       id: 2,
+//       url: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+//     },
+//     {
+//       id: 3,
+//       url: "https://images.unsplash.com/photo-1485291571150-772bcfc10da5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+//     },
+//     {
+//       id: 4,
+//       url: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80",
+//     },
+//     {
+//       id: 5,
+//       url: "https://images.unsplash.com/photo-1597404294360-feeeda04612e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+//     },
+//     {
+//       id: 6,
+//       url: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+//     },
+//     {
+//       id: 7,
+//       url: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+//     },
+//     {
+//       id: 8,
+//       url: "https://images.unsplash.com/photo-1502877338535-766e1452684a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80",
+//     },
+//     {
+//       id: 9,
+//       url: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=847&q=80",
+//     },
+//   ];
 
-  const renderItem = (item) => {
-    return (
-      <View
-        style={{
-          backgroundColor: "#eee",
-          height: 200,
-        }}
-      >
-        <Image
-          style={{
-            height: 200,
-            width: 400,
-          }}
-          source={{
-            uri: item.url,
-          }}
-        />
-      </View>
-    );
-  };
+//   const renderItem = (item) => {
+//     return (
+//       <View
+//         style={{
+//           backgroundColor: "#eee",
+//           height: 200,
+//         }}
+//       >
+//         <Image
+//           style={{
+//             height: 200,
+//             width: 400,
+//           }}
+//           source={{
+//             uri: item.url,
+//           }}
+//         />
+//       </View>
+//     );
+//   };
 
-  return (
-    <View style={styles.imageCarousalTile}>
-      <FlatList
-        horizontal
-        data={categoriesData}
-        renderItem={({ item }) => renderItem(item)}
-        keyExtractor={(item) => `${item.id}`}
-        showsVerticalScrollIndicator={false}
-      />
-    </View>
-  );
-};
+//   return (
+//     <View style={styles.imageCarousalTile}>
+//       <FlatList
+//         horizontal
+//         data={categoriesData}
+//         renderItem={({ item }) => renderItem(item)}
+//         keyExtractor={(item) => `${item.id}`}
+//         showsVerticalScrollIndicator={false}
+//       />
+//     </View>
+//   );
+// };
 
 const CarServicesMore = () => {
   return (
@@ -279,35 +279,121 @@ const AssistServices = () => {
 const AssistServicesIconSet = () => {
   return (
     <View style={{ width: "100%" }}>
-    <View style={styles.carServicesTileHolder}>
-      <View style={styles.carServicesTileRow1}>
-        <IconTile icon={"air-humidifier"} title1={"General"} title2={"Service"} />
-        <IconTile
-          icon={"airbag"}
-          title1={"Premium Bike"}
-          title2={"Service"}
-        />
-        <IconTile icon={"alien"} title1={"Repair"} title2={"Job"} />
-        <IconTile
-          icon={"scan-helper"}
-          title1={"Doorstep Bike"}
-          title2={"Service"}
-        />
-      </View>
-      <View style={styles.carServicesTileRow1}>
-        <IconTile
-          icon={"android"}
-          title1={"Premium"}
-          title2={"Bike Service"}
-        />
+      <View style={styles.carServicesTileHolder}>
+        <View style={styles.carServicesTileRow1}>
+          <IconTile
+            icon={"air-humidifier"}
+            title1={"General"}
+            title2={"Service"}
+          />
+          <IconTile
+            icon={"airbag"}
+            title1={"Premium Bike"}
+            title2={"Service"}
+          />
+          <IconTile icon={"alien"} title1={"Repair"} title2={"Job"} />
+          <IconTile
+            icon={"scan-helper"}
+            title1={"Doorstep Bike"}
+            title2={"Service"}
+          />
+        </View>
+        <View style={styles.carServicesTileRow1}>
+          <IconTile
+            icon={"android"}
+            title1={"Premium"}
+            title2={"Bike Service"}
+          />
+        </View>
       </View>
     </View>
-  </View>
+  );
+};
 
-  )
-}
+const HomeScreen = ({ navigation }) => {
+  const navigationCall = () => {
+    navigation.navigate('ProductPage')
+  };
 
-const HomeScreen = () => {
+  const ImageCarousal = () => {
+    const categoriesData = [
+      {
+        id: 0,
+        url: "https://images.unsplash.com/photo-1493238792000-8113da705763?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+      },
+      {
+        id: 1,
+        url: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+      },
+      {
+        id: 2,
+        url: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+      },
+      {
+        id: 3,
+        url: "https://images.unsplash.com/photo-1485291571150-772bcfc10da5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      },
+      {
+        id: 4,
+        url: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80",
+      },
+      {
+        id: 5,
+        url: "https://images.unsplash.com/photo-1597404294360-feeeda04612e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+      },
+      {
+        id: 6,
+        url: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+      },
+      {
+        id: 7,
+        url: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+      },
+      {
+        id: 8,
+        url: "https://images.unsplash.com/photo-1502877338535-766e1452684a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80",
+      },
+      {
+        id: 9,
+        url: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=847&q=80",
+      },
+    ];
+
+    const renderItem = (item) => {
+      return (
+        <TouchableOpacity
+          style={{
+            backgroundColor: "#eee",
+            height: 200,
+          }}
+          onPress={navigationCall}
+        >
+          <Image
+            style={{
+              height: 200,
+              width: 400,
+            }}
+            source={{
+              uri: item.url,
+            }}
+          />
+        </TouchableOpacity>
+      );
+    };
+
+    return (
+      <View style={styles.imageCarousalTile}>
+        <FlatList
+          horizontal
+          data={categoriesData}
+          renderItem={({ item }) => renderItem(item)}
+          keyExtractor={(item) => `${item.id}`}
+          showsVerticalScrollIndicator={false}
+        />
+      </View>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <Header />
@@ -370,15 +456,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     alignItems: "center",
-    justifyContent: 'center',
+    justifyContent: "center",
     paddingHorizontal: 10,
-    backgroundColor: '#ddd'
+    backgroundColor: "#ddd",
   },
   carServicesTileTitle: {
-    width: '88%'
+    width: "88%",
   },
   bikeServicesTileTitle: {
-    width: '100%'
+    width: "100%",
   },
   carServicesTileTitleText: {
     fontSize: 26,
